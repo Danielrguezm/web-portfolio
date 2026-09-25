@@ -11,7 +11,7 @@ import { DATOS, HABILIDADES } from '../data/perfil';
       <div class="copy" appReveal>
         <span class="kicker">05 · Sobre mí</span>
         <hr />
-        <h2>Del análisis de riesgo al desarrollo full stack</h2>
+        <h2>Apasionado del desarrollo</h2>
         <p>
           Soy titulado en Técnico Superior en Desarrollo de Aplicaciones Web y he hecho las prácticas
           en Plexus Tech, desarrollando aplicaciones internas sobre Dataverse y SharePoint con Power
@@ -93,7 +93,7 @@ import { DATOS, HABILIDADES } from '../data/perfil';
     h2 {
       font-size: clamp(30px, 3.4vw, 44px);
       margin: 0 0 22px;
-      max-width: 16ch;
+      max-width: 22ch;
     }
     p {
       margin: 0 0 16px;

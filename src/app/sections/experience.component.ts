@@ -32,11 +32,14 @@ import { EXPERIENCIA, FORMACION, TableRow } from '../data/experience';
                 <td role="cell" class="detalle">
                   <p>{{ row.detalle }}</p>
                   @if (row.logros?.length) {
-                    <ul class="logros">
-                      @for (logro of row.logros; track logro) {
-                        <li>{{ logro }}</li>
-                      }
-                    </ul>
+                    <details class="mas">
+                      <summary>Ver detalle</summary>
+                      <ul class="logros">
+                        @for (logro of row.logros; track logro) {
+                          <li>{{ logro }}</li>
+                        }
+                      </ul>
+                    </details>
                   }
                 </td>
               </tr>
@@ -69,11 +72,14 @@ import { EXPERIENCIA, FORMACION, TableRow } from '../data/experience';
                 <td role="cell" class="detalle">
                   <p>{{ row.detalle }}</p>
                   @if (row.logros?.length) {
-                    <ul class="logros">
-                      @for (logro of row.logros; track logro) {
-                        <li>{{ logro }}</li>
-                      }
-                    </ul>
+                    <details class="mas">
+                      <summary>Ver detalle</summary>
+                      <ul class="logros">
+                        @for (logro of row.logros; track logro) {
+                          <li>{{ logro }}</li>
+                        }
+                      </ul>
+                    </details>
                   }
                 </td>
               </tr>
@@ -130,6 +136,44 @@ import { EXPERIENCIA, FORMACION, TableRow } from '../data/experience';
     }
     .detalle p {
       margin: 0;
+    }
+    .mas {
+      margin-top: 12px;
+    }
+    .mas summary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      width: fit-content;
+      cursor: pointer;
+      list-style: none;
+      font-family: var(--font-heading);
+      font-weight: 600;
+      font-size: 12px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      padding: 4px 0;
+      transition: color 0.2s ease;
+    }
+    .mas summary::-webkit-details-marker {
+      display: none;
+    }
+    /* Flecha propia: gira al abrir. */
+    .mas summary::before {
+      content: "";
+      width: 7px;
+      height: 7px;
+      border-right: 1px solid currentColor;
+      border-bottom: 1px solid currentColor;
+      transform: rotate(45deg) translate(-1px, -1px);
+      transition: transform 0.2s ease;
+    }
+    .mas[open] summary::before {
+      transform: rotate(-135deg) translate(-2px, -2px);
+    }
+    .mas summary:hover {
+      color: var(--accent-soft);
     }
     .logros {
       margin: 10px 0 0;
