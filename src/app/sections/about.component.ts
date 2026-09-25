@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FrameComponent } from '../shared/frame.component';
 import { RevealDirective } from '../shared/reveal.directive';
+import { DATOS, HABILIDADES } from '../data/perfil';
 
 @Component({
     selector: 'app-about',
@@ -10,33 +11,46 @@ import { RevealDirective } from '../shared/reveal.directive';
       <div class="copy" appReveal>
         <span class="kicker">05 · Sobre mí</span>
         <hr />
-        <h2>Me gusta resolver problemas <br />explicando bien la solución</h2>
+        <h2>Del análisis de riesgo al desarrollo full stack</h2>
         <p>
-          Mi camino no empezó en un aula de programación, sino en la enseñanza: durante tres años
-          trabajé con grupos de personas de distintas nacionalidades, explicando ideas complejas con
-          claridad y paciencia. Ese trabajo me enseñó a convertir lo difícil en algo comprensible,
-          algo que después encontré también en el desarrollo de software.
+          Soy titulado en Técnico Superior en Desarrollo de Aplicaciones Web y he hecho las prácticas
+          en Plexus Tech, desarrollando aplicaciones internas sobre Office 365 y SharePoint con Power
+          Platform: desde la toma de requisitos y el modelo de datos hasta la entrega, los permisos y
+          la documentación para que otra persona pudiera mantenerlas.
         </p>
         <p>
-          Hoy me centro en Java y Spring Boot en el backend, y en Angular con TypeScript en el
-          frontend. Me interesa construir aplicaciones útiles, mantener una lógica clara y aprender en
-          equipo, revisando código, probando ideas y mejorando cada iteración.
+          Antes estuvo Accenture, en el equipo de Trust &amp; Safety del proyecto de Meta en Dublín,
+          analizando casos de pagos y riesgo. Decidir sobre la evidencia disponible, dejar cada
+          decisión registrada y auditable y sostener la precisión también en los picos de volumen es
+          una forma de trabajar que aplico ahora al código.
+        </p>
+        <p>
+          Hoy me centro en Java y Spring Boot en el back-end y en Angular con TypeScript en el
+          front-end, con proyectos propios como Arena.GG. Estudio y construyo fuera del horario de
+          trabajo, y busco un equipo donde revisar código, discutir decisiones y seguir aprendiendo.
+          Inglés C1 tras cuatro años viviendo en Irlanda.
         </p>
       </div>
 
       <div class="facts" appReveal>
-        <app-frame class="fact">
-          <span class="label">Perfil</span>
-          <p class="value">Full-Stack Junior</p>
-        </app-frame>
-        <app-frame class="fact">
-          <span class="label">Ubicación</span>
-          <p class="value">Valencia · Remoto o híbrido</p>
-        </app-frame>
-        <app-frame class="fact">
-          <span class="label">Aprendiendo</span>
-          <p class="value">JUnit · Docker · Testing</p>
-        </app-frame>
+        @for (dato of datos; track dato.label) {
+          <app-frame class="fact">
+            <span class="label">{{ dato.label }}</span>
+            <p class="value">{{ dato.valor }}</p>
+          </app-frame>
+        }
+      </div>
+
+      <div class="habilidades" appReveal>
+        <h3>Cómo trabajo</h3>
+        <div class="habilidades-grid">
+          @for (h of habilidades; track h.nombre) {
+            <app-frame class="habilidad">
+              <span class="habilidad-nombre">{{ h.nombre }}</span>
+              <p>{{ h.descripcion }}</p>
+            </app-frame>
+          }
+        </div>
       </div>
     </div>
   `,
@@ -79,7 +93,7 @@ import { RevealDirective } from '../shared/reveal.directive';
     h2 {
       font-size: clamp(30px, 3.4vw, 44px);
       margin: 0 0 22px;
-      max-width: 12ch;
+      max-width: 16ch;
     }
     p {
       margin: 0 0 16px;
@@ -114,10 +128,51 @@ import { RevealDirective } from '../shared/reveal.directive';
       margin: 8px 0 0;
       font-family: var(--font-heading);
       font-weight: 600;
-      font-size: 22px;
+      font-size: 20px;
       letter-spacing: 0.02em;
       text-transform: uppercase;
       line-height: 1.2;
+      max-width: none;
+    }
+
+    /* Bloque de ancho completo bajo las dos columnas. */
+    .habilidades {
+      flex: 1 1 100%;
+      min-width: 0;
+      margin-top: 8px;
+    }
+    .habilidades h3 {
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--accent-soft);
+      margin: 0 0 18px;
+    }
+    .habilidades-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: clamp(16px, 2vw, 24px);
+    }
+    .habilidad {
+      display: block;
+      padding: 18px 20px;
+    }
+    .habilidad-nombre {
+      display: block;
+      font-family: var(--font-heading);
+      font-weight: 600;
+      font-size: 17px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--text);
+    }
+    .habilidad p {
+      margin: 8px 0 0;
+      font-size: 14px;
+      line-height: 1.6;
+      color: color-mix(in srgb, var(--text) 60%, transparent);
+      max-width: none;
     }
 
     @media (max-width: 860px) {
@@ -126,7 +181,8 @@ import { RevealDirective } from '../shared/reveal.directive';
         gap: 36px;
       }
       .copy,
-      .facts {
+      .facts,
+      .habilidades {
         flex: 1 1 auto;
         width: 100%;
       }
@@ -138,10 +194,6 @@ import { RevealDirective } from '../shared/reveal.directive';
       h2 {
         font-size: clamp(26px, 7.6vw, 34px);
       }
-      /* El salto de linea manual esta pensado para dos columnas anchas. */
-      h2 br {
-        display: none;
-      }
       p {
         font-size: 15px;
         line-height: 1.65;
@@ -152,13 +204,21 @@ import { RevealDirective } from '../shared/reveal.directive';
       .facts {
         gap: 14px;
       }
-      .fact {
+      .fact,
+      .habilidad {
         padding: 16px 18px;
       }
       .value {
-        font-size: 19px;
+        font-size: 18px;
+      }
+      .habilidades-grid {
+        grid-template-columns: 1fr;
+        gap: 14px;
       }
     }
   `
 })
-export class AboutComponent {}
+export class AboutComponent {
+  readonly datos = DATOS;
+  readonly habilidades = HABILIDADES;
+}

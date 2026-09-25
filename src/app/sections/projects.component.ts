@@ -31,10 +31,16 @@ import { PROJECTS } from '../data/projects';
                   </span>
                 }
               </div>
-              <div class="actions">
-                <a [href]="p.repo" target="_blank" rel="noreferrer" class="btn btn-secondary">Código</a>
-                <a [href]="p.demo" class="btn btn-primary">Demo</a>
-              </div>
+              @if (p.repo || p.demo) {
+                <div class="actions">
+                  @if (p.repo) {
+                    <a [href]="p.repo" target="_blank" rel="noreferrer" class="btn btn-secondary">Código</a>
+                  }
+                  @if (p.demo) {
+                    <a [href]="p.demo" target="_blank" rel="noreferrer" class="btn btn-primary">Demo</a>
+                  }
+                </div>
+              }
             </div>
           </app-frame>
         }
@@ -50,7 +56,7 @@ import { PROJECTS } from '../data/projects';
       border-bottom: 1px solid var(--line);
     }
     .wrap {
-      max-width: 960px;
+      max-width: 1100px;
       margin: 0 auto;
     }
     .kicker {
@@ -71,12 +77,11 @@ import { PROJECTS } from '../data/projects';
     }
     .grid {
       display: grid;
-      grid-template-columns: 1fr;
-      justify-items: center;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: clamp(20px, 2.5vw, 34px);
     }
     .card {
-      width: min(100%, 720px);
-      max-width: 720px;
+      width: 100%;
       display: flex;
       flex-direction: column;
     }
@@ -132,6 +137,11 @@ import { PROJECTS } from '../data/projects';
       padding-top: 8px;
     }
 
+    @media (max-width: 860px) {
+      .grid {
+        grid-template-columns: 1fr;
+      }
+    }
     @media (max-width: 560px) {
       hr {
         margin-bottom: 30px;

@@ -11,7 +11,7 @@ import { IconComponent } from '../shared/icon.component';
         <a href="https://github.com/Danielrguezm" target="_blank" rel="noreferrer" aria-label="GitHub" class="icon-btn">
           <app-icon name="github" [size]="17" />
         </a>
-        <a href="https://www.linkedin.com/in/daniel-rodriguez-mullender-177881251/" target="_blank" rel="noreferrer" aria-label="LinkedIn" class="icon-btn">
+        <a href="https://linkedin.com/in/danielrodriguezmullender" target="_blank" rel="noreferrer" aria-label="LinkedIn" class="icon-btn">
           <app-icon name="linkedin" [size]="17" />
         </a>
       </div>

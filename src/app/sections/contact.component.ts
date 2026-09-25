@@ -3,6 +3,7 @@ import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { FrameComponent } from '../shared/frame.component';
 import { RevealDirective } from '../shared/reveal.directive';
 import { IconComponent } from '../shared/icon.component';
+import { CONTACTO } from '../data/perfil';
 
 type EstadoEnvio = 'idle' | 'enviando' | 'ok' | 'error';
 
@@ -17,13 +18,24 @@ type EstadoEnvio = 'idle' | 'enviando' | 'ok' | 'error';
         <h2>¿Hablamos sobre tu proyecto?</h2>
         <p>
           Si buscas a alguien con ganas de aprender, aportar rigor y trabajar bien en equipo, aquí
-          tienes mi perfil. Puedo colaborar en proyectos frontend, backend o en tareas de desarrollo
-          full-stack con una base sólida en Java, Spring Boot y Angular.
+          tienes mi perfil. Puedo colaborar en proyectos de front-end, back-end o desarrollo full
+          stack con base en Java, Spring Boot y Angular, y en automatización sobre Power Platform.
+          Incorporación inmediata y posibilidad de reubicación.
         </p>
-        <a href="mailto:hola@danielrodriguez.dev" class="mail-link">
+        <a [href]="'mailto:' + contacto.email" class="mail-link">
           <app-icon name="mail" [size]="18" />
-          hola&#64;danielrodriguez.dev
+          {{ contacto.email }}
         </a>
+        <ul class="datos">
+          <li>
+            <span class="dato-label">Teléfono</span>
+            <a [href]="'tel:' + contacto.telefonoPlano">{{ contacto.telefono }}</a>
+          </li>
+          <li>
+            <span class="dato-label">Ubicación</span>
+            <span>{{ contacto.ubicacion }}</span>
+          </li>
+        </ul>
       </div>
       <app-frame class="form-frame" appReveal>
         <form [formGroup]="form" (ngSubmit)="enviar()">
@@ -123,6 +135,31 @@ type EstadoEnvio = 'idle' | 'enviando' | 'ok' | 'error';
       color: var(--accent-soft);
       border-color: var(--accent-soft);
     }
+    .datos {
+      list-style: none;
+      margin: 24px 0 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .datos li {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      gap: 4px 12px;
+      font-size: 15px;
+      color: color-mix(in srgb, var(--text) 78%, transparent);
+    }
+    .dato-label {
+      flex: none;
+      min-width: 88px;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: color-mix(in srgb, var(--text) 55%, transparent);
+    }
     .form-frame {
       display: block;
       flex: 1 1 440px;
@@ -212,6 +249,8 @@ type EstadoEnvio = 'idle' | 'enviando' | 'ok' | 'error';
   `
 })
 export class ContactComponent {
+  readonly contacto = CONTACTO;
+
   private fb = new FormBuilder();
 
   estado = signal<EstadoEnvio>('idle');

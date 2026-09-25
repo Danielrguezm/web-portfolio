@@ -23,8 +23,22 @@ import { EXPERIENCIA, FORMACION, TableRow } from '../data/experience';
             @for (row of experiencia; track row.puesto) {
               <tr role="row">
                 <td role="cell" class="periodo">{{ row.periodo }}</td>
-                <td role="cell" class="puesto">{{ row.puesto }}</td>
-                <td role="cell" class="detalle">{{ row.detalle }}</td>
+                <td role="cell" class="puesto">
+                  {{ row.puesto }}
+                  @if (row.empresa) {
+                    <span class="empresa">{{ row.empresa }}</span>
+                  }
+                </td>
+                <td role="cell" class="detalle">
+                  <p>{{ row.detalle }}</p>
+                  @if (row.logros?.length) {
+                    <ul class="logros">
+                      @for (logro of row.logros; track logro) {
+                        <li>{{ logro }}</li>
+                      }
+                    </ul>
+                  }
+                </td>
               </tr>
             }
           </tbody>
@@ -46,8 +60,22 @@ import { EXPERIENCIA, FORMACION, TableRow } from '../data/experience';
             @for (row of formacion; track row.puesto) {
               <tr role="row">
                 <td role="cell" class="periodo">{{ row.periodo }}</td>
-                <td role="cell" class="puesto">{{ row.puesto }}</td>
-                <td role="cell" class="detalle">{{ row.detalle }}</td>
+                <td role="cell" class="puesto">
+                  {{ row.puesto }}
+                  @if (row.empresa) {
+                    <span class="empresa">{{ row.empresa }}</span>
+                  }
+                </td>
+                <td role="cell" class="detalle">
+                  <p>{{ row.detalle }}</p>
+                  @if (row.logros?.length) {
+                    <ul class="logros">
+                      @for (logro of row.logros; track logro) {
+                        <li>{{ logro }}</li>
+                      }
+                    </ul>
+                  }
+                </td>
               </tr>
             }
           </tbody>
@@ -89,6 +117,34 @@ import { EXPERIENCIA, FORMACION, TableRow } from '../data/experience';
     .table-frame {
       display: block;
       padding: 0;
+    }
+    .empresa {
+      display: block;
+      margin-top: 4px;
+      font-family: var(--font-body);
+      font-size: 13px;
+      font-weight: 400;
+      letter-spacing: 0.04em;
+      text-transform: none;
+      color: var(--accent-soft);
+    }
+    .detalle p {
+      margin: 0;
+    }
+    .logros {
+      margin: 10px 0 0;
+      padding-left: 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .logros li {
+      font-size: 14px;
+      line-height: 1.55;
+      color: color-mix(in srgb, var(--text) 62%, transparent);
+    }
+    .logros li::marker {
+      color: var(--accent);
     }
 
     @media (max-width: 720px) {

@@ -67,17 +67,25 @@ La página funciona desde 320px hasta escritorio. Los puntos de corte son:
 Los espaciados usan `clamp()` en lugar de valores fijos por punto de corte, y el
 margen lateral absorbe `env(safe-area-inset-*)` para los móviles con muesca.
 
+## Contenido
+
+Todo el contenido de la página sale de `src/app/data/`, no de las plantillas:
+
+- `perfil.ts` — datos de contacto, habilidades y datos personales.
+- `experience.ts` — experiencia profesional y formación, con el desglose de
+  tareas de cada puesto.
+- `projects.ts` — proyectos. Los campos `repo` y `demo` son opcionales: si no
+  están, la tarjeta no pinta el botón correspondiente.
+- `stack.ts` — competencias técnicas.
+
 ## Pendiente antes de publicar
 
-Quedan varios marcadores de posición:
-
-- `public/assets/cv/cv.pdf` es un archivo vacío de relleno. Falta el CV real.
-- `public/assets/img/proyecto-1.svg` es un marcador. Falta una captura real del
-  proyecto, en proporción 16:9.
-- En `src/app/data/projects.ts`, los enlaces `repo` y `demo` del gestor de tareas
-  apuntan a `https://github.com/` y a `#`.
+- Las cuatro imágenes de `public/assets/img/proyecto-*.svg` son marcadores.
+  Faltan capturas reales, en proporción 16:9.
 - `ContactComponent.enviar()` (en `src/app/sections/contact.component.ts`) no
   envía nada: simula un envío correcto y limpia el formulario. Hay que
   conectarlo a un endpoint real, propio o de un servicio tipo Formspree.
-- `code_rain_animated.webp` (1,8 MB) y `gojodev.png` (1,3 MB) pesan bastante para
-  cargarse en la primera pantalla. Conviene comprimirlas.
+- `code_rain_animated.webp` (1,8 MB) y `gojodev.png` (1,3 MB) pesan bastante
+  para cargarse en la primera pantalla. Conviene comprimirlas.
+- La página publica el teléfono personal en la sección de contacto
+  (`src/app/data/perfil.ts`). Quítalo de ahí si prefieres no exponerlo.

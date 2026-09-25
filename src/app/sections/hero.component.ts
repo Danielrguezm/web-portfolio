@@ -45,17 +45,19 @@ function degradarNombre(text: string, stops: [number, number, number][]): Letter
     <div class="glow"></div>
     <div class="hero">
       <div class="copy" appReveal>
-        <span class="kicker">Disponible para incorporación</span>
+        <span class="kicker">Disponible para incorporación inmediata</span>
         <h1>
           ¡Hola! Soy<br />
           @for (l of letras; track $index) {
             <span [style.color]="l.color">{{ l.ch }}</span>
           }
         </h1>
-        <p class="subtitle">Desarrollador Full-Stack Junior · Lanzarote, Canarias, España</p>
+        <p class="subtitle">Desarrollador Full Stack · Java / Angular · Lanzarote, Canarias, España</p>
         <p class="lead">
-          Java y Spring Boot en el backend, Angular y TypeScript en el frontend. Recién graduado, con
-          tres proyectos propios en producción y ganas de aprender en equipo.
+          Titulado en Desarrollo de Aplicaciones Web, con prácticas en el sector tecnológico. Java y
+          Spring Boot en el back-end, Angular y TypeScript en el front-end, automatización de procesos
+          con Power Platform y Python, y bases de datos relacionales. Inglés C1 tras cuatro años
+          trabajando en Irlanda.
         </p>
         <div class="actions">
           <a href="assets/cv/cv.pdf" download class="btn btn-primary frame">
@@ -64,7 +66,7 @@ function degradarNombre(text: string, stops: [number, number, number][]): Letter
             Descargar CV
           </a>
           <a href="#contacto" class="btn btn-secondary">Contáctame</a>
-          <a href="https://www.linkedin.com/in/daniel-rodriguez-mullender-177881251/" target="_blank" rel="noreferrer" class="btn btn-secondary">LinkedIn</a>
+          <a href="https://linkedin.com/in/danielrodriguezmullender" target="_blank" rel="noreferrer" class="btn btn-secondary">LinkedIn</a>
           <a href="https://github.com/Danielrguezm" target="_blank" rel="noreferrer" class="btn btn-secondary">GitHub</a>
         </div>
       </div>

@@ -1,6 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" role="img" aria-label="Captura de pantalla pendiente: Gestor de tareas">
-  <rect width="1600" height="1000" fill="#1b2a3a"/>
-  <rect x="24" y="24" width="1552" height="952" fill="none" stroke="#7fb2f0" stroke-width="2" stroke-dasharray="10 10"/>
-  <text x="800" y="480" font-family="Barlow Condensed, sans-serif" font-size="56" font-weight="600" letter-spacing="2" fill="#7fb2f0" text-anchor="middle" text-transform="uppercase">GESTOR DE TAREAS</text>
-  <text x="800" y="540" font-family="Barlow, sans-serif" font-size="26" fill="#b9d5f8" text-anchor="middle">Sustituye por una captura real del proyecto</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" role="img" aria-label="Captura de pantalla pendiente: ARENA.GG">
+  <rect width="1600" height="900" fill="#1b2a3a"/>
+  <rect x="24" y="24" width="1552" height="852" fill="none" stroke="#7fb2f0" stroke-width="2" stroke-dasharray="10 10"/>
+  <text x="800" y="430" font-family="Barlow Condensed, sans-serif" font-size="56" font-weight="600" letter-spacing="2" fill="#7fb2f0" text-anchor="middle">ARENA.GG</text>
+  <text x="800" y="490" font-family="Barlow, sans-serif" font-size="26" fill="#b9d5f8" text-anchor="middle">Sustituye por una captura real de la plataforma</text>
 </svg>
