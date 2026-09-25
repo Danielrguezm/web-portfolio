@@ -80,8 +80,9 @@ Todo el contenido de la página sale de `src/app/data/`, no de las plantillas:
 
 ## Pendiente antes de publicar
 
-- `public/assets/img/proyecto-3.svg` (Onboarding de RR. HH.) sigue siendo un
-  marcador. Falta una captura real, en proporción 16:9.
+- Los proyectos 02, 03 y 04 se ilustran con iconos genéricos, no con capturas
+  de las aplicaciones. Sustituirlos por pantallazos reales (en 16:9, y
+  cambiando `encaje: 'icono'` por el valor por defecto) daría mejor impresión.
 - `ContactComponent.enviar()` (en `src/app/sections/contact.component.ts`) no
   envía nada: simula un envío correcto y limpia el formulario. Hay que
   conectarlo a un endpoint real, propio o de un servicio tipo Formspree.

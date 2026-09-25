@@ -55,8 +55,9 @@ export const PROJECTS: Project[] = [
       { icon: 'database', label: 'Dataverse' },
       { icon: 'zap', label: 'Power Automate' },
     ],
-    img: 'assets/img/proyecto-3.svg',
-    alt: 'Captura de la aplicación de onboarding de recursos humanos',
+    img: 'assets/img/proyecto-3.png',
+    alt: 'Icono de una ficha de empleado con un apretón de manos',
+    encaje: 'icono',
   },
   {
     numero: 'Proyecto 04',
