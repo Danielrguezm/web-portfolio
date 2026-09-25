@@ -7,6 +7,8 @@ export interface Project {
   chips: { icon: IconName; label: string }[];
   img: string;
   alt: string;
+  /** 'icono' encaja la imagen entera sobre fondo claro, sin duotono. */
+  encaje?: 'captura' | 'icono';
   /** Ausente cuando el proyecto no es público. */
   repo?: string;
   /** Ausente mientras no haya demo desplegada. */
@@ -25,8 +27,8 @@ export const PROJECTS: Project[] = [
       { icon: 'java', label: 'Java' },
       { icon: 'database', label: 'PostgreSQL' },
     ],
-    img: 'assets/img/proyecto-1.svg',
-    alt: 'Captura de la plataforma Arena.GG',
+    img: 'assets/img/proyecto-1.png',
+    alt: 'Página de inicio de la plataforma Arena.GG',
     repo: 'https://github.com/Danielrguezm/arena-gg',
   },
   {
@@ -39,8 +41,9 @@ export const PROJECTS: Project[] = [
       { icon: 'zap', label: 'Power Automate' },
       { icon: 'database', label: 'SharePoint' },
     ],
-    img: 'assets/img/proyecto-2.svg',
-    alt: 'Captura del tablero Kanban de gestión de tareas',
+    img: 'assets/img/proyecto-2.png',
+    alt: 'Icono de un tablero Kanban',
+    encaje: 'icono',
   },
   {
     numero: 'Proyecto 03',
@@ -64,8 +67,9 @@ export const PROJECTS: Project[] = [
       { icon: 'code', label: 'Python' },
       { icon: 'zap', label: 'Automatización' },
     ],
-    img: 'assets/img/proyecto-4.svg',
-    alt: 'Captura del bot de automatización de alertas',
+    img: 'assets/img/proyecto-4.png',
+    alt: 'Icono de un robot',
+    encaje: 'icono',
     repo: 'https://github.com/Danielrguezm/crypto-bot',
   },
 ];

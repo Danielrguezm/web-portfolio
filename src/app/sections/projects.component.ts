@@ -14,7 +14,7 @@ import { PROJECTS } from '../data/projects';
       <div class="grid">
         @for (p of projects; track p.titulo; let i = $index) {
           <app-frame class="card" appReveal [delay]="i * 80">
-            <div class="shot duotone">
+            <div class="shot" [class.duotone]="p.encaje !== 'icono'" [class.icono]="p.encaje === 'icono'">
               <div class="zoom">
                 <img [src]="p.img" [alt]="p.alt" />
               </div>
@@ -91,14 +91,28 @@ import { PROJECTS } from '../data/projects';
       transform: translateY(-6px);
     }
     .shot {
+      aspect-ratio: 16 / 9;
       overflow: hidden;
       border-bottom: 1px solid var(--line);
+    }
+    .shot .zoom {
+      width: 100%;
+      height: 100%;
     }
     .shot img {
       display: block;
       width: 100%;
-      aspect-ratio: 16 / 9;
+      height: 100%;
       object-fit: cover;
+    }
+    /* Los iconos son cuadrados y de trazo oscuro: recortarlos a 16:9 los
+       destrozaria, y sobre el fondo oscuro de la tarjeta no se verian. */
+    .shot.icono {
+      background: #fff;
+    }
+    .shot.icono img {
+      object-fit: contain;
+      padding: clamp(18px, 4%, 34px);
     }
     .body {
       padding: 22px 22px 24px;
