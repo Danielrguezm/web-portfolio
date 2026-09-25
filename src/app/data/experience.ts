@@ -15,7 +15,7 @@ export const EXPERIENCIA: TableRow[] = [
     puesto: 'Desarrollador Power Platform · Prácticas',
     empresa: 'Plexus Tech · España',
     detalle:
-      'Desarrollo de aplicaciones internas sobre Office 365 y SharePoint para la gestión de tareas y el onboarding de empleados, participando desde la toma de requisitos hasta la entrega.',
+      'Desarrollo de aplicaciones internas sobre Dataverse y SharePoint para la gestión de tareas y el onboarding de empleados, participando desde la toma de requisitos hasta la entrega.',
     logros: [
       'Diseño del modelo de datos en SharePoint y Dataverse, definiendo entidades, relaciones y permisos, y resolviendo las consultas necesarias para cada vista.',
       'Implementación de la lógica de negocio en Power Fx y automatización de procesos manuales con Power Automate, sustituyendo el seguimiento en hojas de cálculo por flujos con registro automático.',

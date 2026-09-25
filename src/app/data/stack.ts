@@ -22,5 +22,5 @@ export const STACK: TechCell[] = [
   { n: '12', nombre: 'MongoDB', nota: 'NoSQL · Documentos', icons: ['mongodb'] },
   { n: '13', nombre: 'Git / GitHub', nota: 'Ramas · PRs', icons: ['git'] },
   { n: '14', nombre: 'Power Platform', nota: 'Apps · Automate · Fx', icons: ['layers'] },
-  { n: '15', nombre: 'Office 365', nota: 'SharePoint · Dataverse · Excel', icons: ['layers'] },
+  { n: '15', nombre: 'Dataverse', nota: 'Modelo de datos · SharePoint', icons: ['database'] },
 ];

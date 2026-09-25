@@ -14,7 +14,7 @@ import { DATOS, HABILIDADES } from '../data/perfil';
         <h2>Del análisis de riesgo al desarrollo full stack</h2>
         <p>
           Soy titulado en Técnico Superior en Desarrollo de Aplicaciones Web y he hecho las prácticas
-          en Plexus Tech, desarrollando aplicaciones internas sobre Office 365 y SharePoint con Power
+          en Plexus Tech, desarrollando aplicaciones internas sobre Dataverse y SharePoint con Power
           Platform: desde la toma de requisitos y el modelo de datos hasta la entrega, los permisos y
           la documentación para que otra persona pudiera mantenerlas.
         </p>
