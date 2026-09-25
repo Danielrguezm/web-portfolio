@@ -83,8 +83,9 @@ Todo el contenido de la página sale de `src/app/data/`, no de las plantillas:
 - Los proyectos 02, 03 y 04 se ilustran con iconos genéricos, no con capturas
   de las aplicaciones. Sustituirlos por pantallazos reales (en 16:9, y
   cambiando `encaje: 'icono'` por el valor por defecto) daría mejor impresión.
-- `ContactComponent.enviar()` (en `src/app/sections/contact.component.ts`) no
-  envía nada: simula un envío correcto y limpia el formulario. Hay que
-  conectarlo a un endpoint real, propio o de un servicio tipo Formspree.
+- El formulario de contacto envía a través de FormSubmit, sin backend propio.
+  El endpoint está en `src/app/data/perfil.ts`. **Hay que confirmar una vez**
+  el enlace que FormSubmit manda por correo tras el primer envío; hasta
+  entonces los mensajes no llegan.
 - La página publica el teléfono personal en la sección de contacto
   (`src/app/data/perfil.ts`). Quítalo de ahí si prefieres no exponerlo.

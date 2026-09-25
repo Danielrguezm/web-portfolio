@@ -7,6 +7,9 @@ export const CONTACTO = {
   ubicacion: 'Lanzarote, Canarias, España',
   github: 'https://github.com/Danielrguezm',
   linkedin: 'https://linkedin.com/in/danielrodriguezmullender',
+  // FormSubmit reenvia el formulario a este correo sin necesidad de backend.
+  // Requiere confirmar una sola vez el enlace que envian al primer mensaje.
+  formEndpoint: 'https://formsubmit.co/ajax/Danielrodriguezmull@gmail.com',
 } as const;
 
 export interface Habilidad {

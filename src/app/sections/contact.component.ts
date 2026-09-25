@@ -1,4 +1,5 @@
-import { Component, computed, signal } from '@angular/core';
+import { Component, computed, inject, signal } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { FrameComponent } from '../shared/frame.component';
 import { RevealDirective } from '../shared/reveal.directive';
@@ -38,32 +39,75 @@ type EstadoEnvio = 'idle' | 'enviando' | 'ok' | 'error';
         </ul>
       </div>
       <app-frame class="form-frame" appReveal>
-        <form [formGroup]="form" (ngSubmit)="enviar()">
+        <form [formGroup]="form" (ngSubmit)="enviar()" novalidate>
           <div class="row">
             <div class="field">
               <label for="c-nombre">Nombre</label>
-              <input class="input" id="c-nombre" type="text" formControlName="nombre" placeholder="Tu nombre" />
+              <input
+                class="input"
+                [class.invalido]="fallo('nombre')"
+                id="c-nombre"
+                type="text"
+                formControlName="nombre"
+                placeholder="Tu nombre"
+                autocomplete="name"
+                [attr.aria-invalid]="fallo('nombre')"
+                [attr.aria-describedby]="fallo('nombre') ? 'e-nombre' : null"
+              />
+              @if (fallo('nombre')) {
+                <p class="error" id="e-nombre">Escribe tu nombre.</p>
+              }
             </div>
             <div class="field">
               <label for="c-email">Email</label>
-              <input class="input" id="c-email" type="email" formControlName="email" placeholder="tu@correo.com" />
+              <input
+                class="input"
+                [class.invalido]="fallo('email')"
+                id="c-email"
+                type="email"
+                formControlName="email"
+                placeholder="tu@correo.com"
+                autocomplete="email"
+                [attr.aria-invalid]="fallo('email')"
+                [attr.aria-describedby]="fallo('email') ? 'e-email' : null"
+              />
+              @if (fallo('email')) {
+                <p class="error" id="e-email">
+                  {{ form.controls.email.hasError('required') ? 'Escribe tu correo.' : 'Ese correo no parece válido.' }}
+                </p>
+              }
             </div>
           </div>
           <div class="field">
             <label for="c-mensaje">Mensaje</label>
             <textarea
               class="input"
+              [class.invalido]="fallo('mensaje')"
               id="c-mensaje"
               rows="5"
               formControlName="mensaje"
               placeholder="Cuéntame qué necesitas o en qué puedes ayudarme."
+              [attr.aria-invalid]="fallo('mensaje')"
+              [attr.aria-describedby]="fallo('mensaje') ? 'e-mensaje' : null"
             ></textarea>
+            @if (fallo('mensaje')) {
+              <p class="error" id="e-mensaje">
+                {{ form.controls.mensaje.hasError('required') ? 'Escribe un mensaje.' : 'Cuéntame un poco más: al menos 10 caracteres.' }}
+              </p>
+            }
           </div>
+
+          <!-- Trampa para bots: invisible y fuera del recorrido de tabulacion.
+               Si viene rellena, FormSubmit descarta el envio. -->
+          <input class="trampa" type="text" formControlName="_honey" tabindex="-1" autocomplete="off" aria-hidden="true" />
+
           <div class="submit-row">
-            <button type="submit" class="btn btn-primary" [disabled]="form.invalid || estado() === 'enviando'">
-              Enviar mensaje
+            <button type="submit" class="btn btn-primary" [disabled]="estado() === 'enviando'">
+              {{ estado() === 'enviando' ? 'Enviando…' : 'Enviar mensaje' }}
             </button>
-            <span class="status">{{ mensajeEstado() }}</span>
+            <span class="status" [class.status-error]="estado() === 'error'" role="status" aria-live="polite">
+              {{ mensajeEstado() }}
+            </span>
           </div>
         </form>
       </app-frame>
@@ -187,6 +231,26 @@ type EstadoEnvio = 'idle' | 'enviando' | 'ok' | 'error';
       padding-inline: 24px;
       font-size: 15px;
     }
+    .input.invalido {
+      border-color: #ff8a8a;
+    }
+    .error {
+      margin: 6px 0 0;
+      font-size: 14px;
+      line-height: 1.4;
+      color: #ff9d9d;
+      max-width: none;
+    }
+    .trampa {
+      position: absolute;
+      left: -9999px;
+      width: 1px;
+      height: 1px;
+      opacity: 0;
+    }
+    .status-error {
+      color: #ff9d9d;
+    }
     .status {
       font-size: 15px;
       color: var(--accent-soft);
@@ -252,6 +316,7 @@ export class ContactComponent {
   readonly contacto = CONTACTO;
 
   private fb = new FormBuilder();
+  private http = inject(HttpClient);
 
   estado = signal<EstadoEnvio>('idle');
   mensajeEstado = computed(
@@ -259,10 +324,8 @@ export class ContactComponent {
       ({
         idle: '',
         enviando: 'Enviando…',
-        // Demo: sin backend conectado. Sustituye enviar() por una llamada real
-        // (fetch/HttpClient a Formspree o a tu API) antes de publicar.
-        ok: 'Gracias, te respondo pronto. (Demo — conecta tu backend o Formspree.)',
-        error: 'No se pudo enviar. Escríbeme por correo.',
+        ok: 'Mensaje enviado. Te respondo en cuanto pueda.',
+        error: 'No se pudo enviar. Escríbeme a ' + CONTACTO.email,
       })[this.estado()],
   );
 
@@ -270,11 +333,44 @@ export class ContactComponent {
     nombre: ['', Validators.required],
     email: ['', [Validators.required, Validators.email]],
     mensaje: ['', [Validators.required, Validators.minLength(10)]],
+    _honey: [''],
   });
 
+  /** Solo se marca en rojo lo que el visitante ya ha tocado o intentado enviar. */
+  fallo(campo: 'nombre' | 'email' | 'mensaje'): boolean {
+    const c = this.form.controls[campo];
+    return c.invalid && (c.touched || c.dirty);
+  }
+
   enviar(): void {
-    if (this.form.invalid) return;
-    this.estado.set('ok');
-    this.form.reset();
+    if (this.estado() === 'enviando') return;
+
+    // El boton ya no se desactiva: al pulsar con errores se muestran,
+    // en vez de dejar al visitante sin saber por que no puede enviar.
+    if (this.form.invalid) {
+      this.form.markAllAsTouched();
+      return;
+    }
+
+    const { nombre, email, mensaje, _honey } = this.form.getRawValue();
+    this.estado.set('enviando');
+
+    this.http
+      .post(CONTACTO.formEndpoint, {
+        nombre,
+        email,
+        mensaje,
+        _honey,
+        _subject: `Portfolio — mensaje de ${nombre}`,
+        _captcha: 'false',
+        _template: 'table',
+      })
+      .subscribe({
+        next: () => {
+          this.estado.set('ok');
+          this.form.reset();
+        },
+        error: () => this.estado.set('error'),
+      });
   }
 }
