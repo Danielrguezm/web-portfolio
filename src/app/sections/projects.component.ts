@@ -63,7 +63,7 @@ import { PROJECTS } from '../data/projects';
       display: block;
       font-family: var(--font-heading);
       font-weight: 600;
-      font-size: 13px;
+      font-size: 14px;
       letter-spacing: 0.16em;
       text-transform: uppercase;
       color: var(--accent-soft);
@@ -122,19 +122,19 @@ import { PROJECTS } from '../data/projects';
       flex: 1;
     }
     .kicker-sm {
-      font-size: 12px;
+      font-size: 13px;
       font-weight: 600;
       letter-spacing: 0.14em;
       text-transform: uppercase;
       color: var(--accent-soft);
     }
     h3 {
-      font-size: 26px;
+      font-size: 27px;
       margin: 0;
     }
     p {
       margin: 0;
-      font-size: 15px;
+      font-size: 16px;
       line-height: 1.6;
       color: color-mix(in srgb, var(--text) 72%, transparent);
     }
@@ -165,10 +165,10 @@ import { PROJECTS } from '../data/projects';
         gap: 12px;
       }
       h3 {
-        font-size: 22px;
+        font-size: 23px;
       }
       p {
-        font-size: 14px;
+        font-size: 15px;
       }
       .actions {
         display: grid;

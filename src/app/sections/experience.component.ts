@@ -105,7 +105,7 @@ import { EXPERIENCIA, FORMACION, TableRow } from '../data/experience';
       display: block;
       font-family: var(--font-heading);
       font-weight: 600;
-      font-size: 13px;
+      font-size: 14px;
       letter-spacing: 0.16em;
       text-transform: uppercase;
       color: var(--accent-soft);
@@ -128,7 +128,7 @@ import { EXPERIENCIA, FORMACION, TableRow } from '../data/experience';
       display: block;
       margin-top: 4px;
       font-family: var(--font-body);
-      font-size: 13px;
+      font-size: 14px;
       font-weight: 400;
       letter-spacing: 0.04em;
       text-transform: none;
@@ -149,7 +149,7 @@ import { EXPERIENCIA, FORMACION, TableRow } from '../data/experience';
       list-style: none;
       font-family: var(--font-heading);
       font-weight: 600;
-      font-size: 12px;
+      font-size: 13px;
       letter-spacing: 0.12em;
       text-transform: uppercase;
       color: var(--accent);
@@ -183,7 +183,7 @@ import { EXPERIENCIA, FORMACION, TableRow } from '../data/experience';
       gap: 6px;
     }
     .logros li {
-      font-size: 14px;
+      font-size: 15px;
       line-height: 1.55;
       color: color-mix(in srgb, var(--text) 62%, transparent);
     }

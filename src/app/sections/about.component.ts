@@ -78,7 +78,7 @@ import { DATOS, HABILIDADES } from '../data/perfil';
       display: block;
       font-family: var(--font-heading);
       font-weight: 600;
-      font-size: 13px;
+      font-size: 14px;
       letter-spacing: 0.16em;
       text-transform: uppercase;
       color: var(--accent-soft);
@@ -97,7 +97,7 @@ import { DATOS, HABILIDADES } from '../data/perfil';
     }
     p {
       margin: 0 0 16px;
-      font-size: 16px;
+      font-size: 17px;
       line-height: 1.7;
       color: color-mix(in srgb, var(--text) 78%, transparent);
       max-width: 60ch;
@@ -118,7 +118,7 @@ import { DATOS, HABILIDADES } from '../data/perfil';
     }
     .label {
       display: block;
-      font-size: 12px;
+      font-size: 13px;
       letter-spacing: 0.12em;
       text-transform: uppercase;
       font-weight: 600;
@@ -128,7 +128,7 @@ import { DATOS, HABILIDADES } from '../data/perfil';
       margin: 8px 0 0;
       font-family: var(--font-heading);
       font-weight: 600;
-      font-size: 20px;
+      font-size: 21px;
       letter-spacing: 0.02em;
       text-transform: uppercase;
       line-height: 1.2;
@@ -142,7 +142,7 @@ import { DATOS, HABILIDADES } from '../data/perfil';
       margin-top: 8px;
     }
     .habilidades h3 {
-      font-size: 13px;
+      font-size: 14px;
       font-weight: 600;
       letter-spacing: 0.16em;
       text-transform: uppercase;
@@ -162,14 +162,14 @@ import { DATOS, HABILIDADES } from '../data/perfil';
       display: block;
       font-family: var(--font-heading);
       font-weight: 600;
-      font-size: 17px;
+      font-size: 18px;
       letter-spacing: 0.04em;
       text-transform: uppercase;
       color: var(--text);
     }
     .habilidad p {
       margin: 8px 0 0;
-      font-size: 14px;
+      font-size: 15px;
       line-height: 1.6;
       color: color-mix(in srgb, var(--text) 60%, transparent);
       max-width: none;
@@ -195,7 +195,7 @@ import { DATOS, HABILIDADES } from '../data/perfil';
         font-size: clamp(26px, 7.6vw, 34px);
       }
       p {
-        font-size: 15px;
+        font-size: 16px;
         line-height: 1.65;
       }
       hr {
@@ -209,7 +209,7 @@ import { DATOS, HABILIDADES } from '../data/perfil';
         padding: 16px 18px;
       }
       .value {
-        font-size: 18px;
+        font-size: 19px;
       }
       .habilidades-grid {
         grid-template-columns: 1fr;

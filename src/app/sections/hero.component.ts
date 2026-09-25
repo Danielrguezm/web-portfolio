@@ -139,7 +139,7 @@ function degradarNombre(text: string, stops: [number, number, number][]): Letter
       display: block;
       font-family: var(--font-heading);
       font-weight: 600;
-      font-size: 13px;
+      font-size: 14px;
       letter-spacing: 0.16em;
       text-transform: uppercase;
       color: var(--accent-soft);
@@ -152,14 +152,14 @@ function degradarNombre(text: string, stops: [number, number, number][]): Letter
       margin: 0 0 0 -0.052em;
     }
     .subtitle {
-      font-size: 18px;
+      font-size: 19px;
       line-height: 1.5;
       color: color-mix(in srgb, var(--text) 78%, transparent);
       max-width: 52ch;
       margin: 24px 0 0;
     }
     .lead {
-      font-size: 16px;
+      font-size: 17px;
       line-height: 1.6;
       color: color-mix(in srgb, var(--text) 62%, transparent);
       max-width: 56ch;
@@ -173,7 +173,7 @@ function degradarNombre(text: string, stops: [number, number, number][]): Letter
     }
     .actions .btn {
       padding: 11px 20px;
-      font-size: 14px;
+      font-size: 15px;
     }
     .photo {
       margin: 0;
@@ -236,7 +236,7 @@ function degradarNombre(text: string, stops: [number, number, number][]): Letter
         font-size: clamp(38px, 8.6vw, 66px);
       }
       .subtitle {
-        font-size: 17px;
+        font-size: 18px;
         margin-top: 20px;
       }
     }
@@ -245,13 +245,13 @@ function degradarNombre(text: string, stops: [number, number, number][]): Letter
         padding: calc(var(--nav-h) + 36px) var(--gutter) 56px;
       }
       .kicker {
-        font-size: 12px;
+        font-size: 13px;
       }
       .subtitle {
-        font-size: 16px;
+        font-size: 17px;
       }
       .lead {
-        font-size: 15px;
+        font-size: 16px;
       }
       /* Botones a rejilla: el CV ocupa la fila entera y el resto se reparte. */
       .actions {
@@ -263,7 +263,7 @@ function degradarNombre(text: string, stops: [number, number, number][]): Letter
       .actions .btn {
         width: 100%;
         padding: 12px 10px;
-        font-size: 12px;
+        font-size: 13px;
       }
       .actions .btn:first-child {
         grid-column: 1 / -1;

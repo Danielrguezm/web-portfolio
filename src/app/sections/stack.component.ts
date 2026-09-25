@@ -50,7 +50,7 @@ import { STACK } from '../data/stack';
       display: block;
       font-family: var(--font-heading);
       font-weight: 600;
-      font-size: 13px;
+      font-size: 14px;
       letter-spacing: 0.16em;
       text-transform: uppercase;
       color: var(--accent-soft);
@@ -94,7 +94,7 @@ import { STACK } from '../data/stack';
       gap: 6px;
     }
     .num {
-      font-size: 12px;
+      font-size: 13px;
       font-weight: 600;
       letter-spacing: 0.12em;
       color: var(--accent-soft);
@@ -106,7 +106,7 @@ import { STACK } from '../data/stack';
     .grupo-titulo {
       font-family: var(--font-heading);
       font-weight: 600;
-      font-size: 13px;
+      font-size: 14px;
       letter-spacing: 0.16em;
       text-transform: uppercase;
       color: color-mix(in srgb, var(--text) 55%, transparent);
@@ -119,13 +119,13 @@ import { STACK } from '../data/stack';
       font-weight: 600;
       letter-spacing: 0.02em;
       text-transform: uppercase;
-      font-size: 24px;
+      font-size: 25px;
       line-height: 1.08;
       margin: 10px 0 6px;
     }
     p {
       margin: 0;
-      font-size: 14px;
+      font-size: 15px;
       color: color-mix(in srgb, var(--text) 60%, transparent);
     }
 
@@ -138,7 +138,7 @@ import { STACK } from '../data/stack';
         padding: 16px;
       }
       h4 {
-        font-size: 21px;
+        font-size: 22px;
       }
       hr {
         margin-bottom: 28px;

@@ -36,7 +36,7 @@ import { IconComponent } from '../shared/icon.component';
     .name {
       font-family: var(--font-heading);
       font-weight: 600;
-      font-size: 16px;
+      font-size: 17px;
       letter-spacing: 0.1em;
       text-transform: uppercase;
     }
@@ -64,11 +64,11 @@ import { IconComponent } from '../shared/icon.component';
     }
     .copyright {
       margin-left: auto;
-      font-size: 13px;
+      font-size: 14px;
       color: color-mix(in srgb, var(--text) 55%, transparent);
     }
     .colophon {
-      font-size: 13px;
+      font-size: 14px;
       color: color-mix(in srgb, var(--text) 55%, transparent);
     }
 

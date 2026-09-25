@@ -92,7 +92,7 @@ type EstadoEnvio = 'idle' | 'enviando' | 'ok' | 'error';
       display: block;
       font-family: var(--font-heading);
       font-weight: 600;
-      font-size: 13px;
+      font-size: 14px;
       letter-spacing: 0.16em;
       text-transform: uppercase;
       color: var(--accent-soft);
@@ -111,7 +111,7 @@ type EstadoEnvio = 'idle' | 'enviando' | 'ok' | 'error';
     }
     p {
       margin: 0 0 24px;
-      font-size: 16px;
+      font-size: 17px;
       line-height: 1.7;
       color: color-mix(in srgb, var(--text) 75%, transparent);
       max-width: 46ch;
@@ -122,7 +122,7 @@ type EstadoEnvio = 'idle' | 'enviando' | 'ok' | 'error';
       gap: 10px;
       font-family: var(--font-heading);
       font-weight: 600;
-      font-size: 20px;
+      font-size: 21px;
       letter-spacing: 0.02em;
       color: var(--accent);
       border-bottom: 1px solid color-mix(in srgb, var(--accent) 45%, transparent);
@@ -148,13 +148,13 @@ type EstadoEnvio = 'idle' | 'enviando' | 'ok' | 'error';
       flex-wrap: wrap;
       align-items: baseline;
       gap: 4px 12px;
-      font-size: 15px;
+      font-size: 16px;
       color: color-mix(in srgb, var(--text) 78%, transparent);
     }
     .dato-label {
       flex: none;
       min-width: 88px;
-      font-size: 12px;
+      font-size: 13px;
       font-weight: 600;
       letter-spacing: 0.12em;
       text-transform: uppercase;
@@ -185,10 +185,10 @@ type EstadoEnvio = 'idle' | 'enviando' | 'ok' | 'error';
     .submit-row .btn {
       min-height: 44px;
       padding-inline: 24px;
-      font-size: 14px;
+      font-size: 15px;
     }
     .status {
-      font-size: 14px;
+      font-size: 15px;
       color: var(--accent-soft);
     }
 
@@ -216,14 +216,14 @@ type EstadoEnvio = 'idle' | 'enviando' | 'ok' | 'error';
         font-size: clamp(26px, 7.6vw, 34px);
       }
       p {
-        font-size: 15px;
+        font-size: 16px;
         margin-bottom: 20px;
       }
       hr {
         margin-bottom: 24px;
       }
       .mail-link {
-        font-size: 17px;
+        font-size: 18px;
         letter-spacing: 0;
         word-break: break-word;
       }

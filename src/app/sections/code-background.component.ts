@@ -121,7 +121,7 @@ function paint(text: string): string {
       column-count: 2;
       column-gap: clamp(32px, 6vw, 88px);
       font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-      font-size: 13px;
+      font-size: 14px;
       line-height: 1.9;
       opacity: 0.68;
       white-space: pre;

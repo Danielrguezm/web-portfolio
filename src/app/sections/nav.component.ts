@@ -127,7 +127,7 @@ const DESKTOP_BP = 860;
       min-width: 0;
       font-family: var(--font-heading);
       font-weight: 600;
-      font-size: 13px;
+      font-size: 14px;
       letter-spacing: 0.12em;
       text-transform: uppercase;
       white-space: nowrap;
@@ -243,7 +243,7 @@ const DESKTOP_BP = 860;
       box-shadow: 0 24px 50px rgba(2, 6, 23, 0.5);
       font-family: var(--font-heading);
       font-weight: 600;
-      font-size: 16px;
+      font-size: 17px;
       letter-spacing: 0.12em;
       text-transform: uppercase;
       /* Estado cerrado; .open lo revierte. */
