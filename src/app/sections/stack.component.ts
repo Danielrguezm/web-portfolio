@@ -11,22 +11,27 @@ import { STACK } from '../data/stack';
     <div class="wrap">
       <span class="kicker" appReveal>01 · Stack tecnológico</span>
       <hr appReveal />
-      <div class="grid">
-        @for (t of stack; track t.n; let i = $index) {
-          <app-frame class="cell" appReveal [delay]="i * 60">
-            <div class="cell-head">
-              <span class="logos">
-                @for (icon of t.icons; track icon) {
-                  <app-icon [name]="icon" [size]="26" [label]="t.nombre" />
-                }
-              </span>
-              <span class="num">{{ t.n }}</span>
-            </div>
-            <h3>{{ t.nombre }}</h3>
-            <p>{{ t.nota }}</p>
-          </app-frame>
-        }
-      </div>
+      @for (grupo of stack; track grupo.titulo) {
+        <section class="grupo">
+          <h3 class="grupo-titulo" appReveal>{{ grupo.titulo }}</h3>
+          <div class="grid">
+            @for (t of grupo.items; track t.n; let i = $index) {
+              <app-frame class="cell" appReveal [delay]="i * 60">
+                <div class="cell-head">
+                  <span class="logos">
+                    @for (icon of t.icons; track icon) {
+                      <app-icon [name]="icon" [size]="26" [label]="t.nombre" />
+                    }
+                  </span>
+                  <span class="num">{{ t.n }}</span>
+                </div>
+                <h4>{{ t.nombre }}</h4>
+                <p>{{ t.nota }}</p>
+              </app-frame>
+            }
+          </div>
+        </section>
+      }
     </div>
   `,
     host: { id: 'stack' },
@@ -95,8 +100,27 @@ import { STACK } from '../data/stack';
       color: var(--accent-soft);
       font-feature-settings: 'tnum' 1;
     }
-    h3 {
+    .grupo + .grupo {
+      margin-top: clamp(28px, 3.5vw, 44px);
+    }
+    .grupo-titulo {
+      font-family: var(--font-heading);
+      font-weight: 600;
+      font-size: 13px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: color-mix(in srgb, var(--text) 55%, transparent);
+      margin: 0 0 16px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--line);
+    }
+    h4 {
+      font-family: var(--font-heading);
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
       font-size: 24px;
+      line-height: 1.08;
       margin: 10px 0 6px;
     }
     p {
@@ -113,7 +137,7 @@ import { STACK } from '../data/stack';
       .cell {
         padding: 16px;
       }
-      h3 {
+      h4 {
         font-size: 21px;
       }
       hr {

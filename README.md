@@ -86,7 +86,5 @@ Todo el contenido de la página sale de `src/app/data/`, no de las plantillas:
 - `ContactComponent.enviar()` (en `src/app/sections/contact.component.ts`) no
   envía nada: simula un envío correcto y limpia el formulario. Hay que
   conectarlo a un endpoint real, propio o de un servicio tipo Formspree.
-- `code_rain_animated.webp` (1,8 MB) y `gojodev.png` (1,3 MB) pesan bastante
-  para cargarse en la primera pantalla. Conviene comprimirlas.
 - La página publica el teléfono personal en la sección de contacto
   (`src/app/data/perfil.ts`). Quítalo de ahí si prefieres no exponerlo.

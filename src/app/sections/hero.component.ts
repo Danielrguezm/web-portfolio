@@ -9,11 +9,10 @@ interface Letter {
 
 const NAME = 'Daniel Rodríguez';
 const GRADIENT_STOPS: [number, number, number][] = [
-  [86, 156, 214], // azul
-  [0, 200, 255], // cian
-  [78, 201, 176], // turquesa
-  [126, 231, 135], // verde
-  [190, 242, 100], // lima
+  [86, 156, 214], // azul medio
+  [126, 201, 255], // acento
+  [156, 211, 255], // azul claro
+  [208, 235, 255], // azul palido
 ];
 
 function degradarNombre(text: string, stops: [number, number, number][]): Letter[] {
@@ -56,8 +55,7 @@ function degradarNombre(text: string, stops: [number, number, number][]): Letter
         <p class="lead">
           Titulado en Desarrollo de Aplicaciones Web, con prácticas en el sector tecnológico. Java y
           Spring Boot en el back-end, Angular y TypeScript en el front-end, automatización de procesos
-          con Power Platform y Python, y bases de datos relacionales. Inglés C1 tras cuatro años
-          trabajando en Irlanda.
+          con Power Platform y Python, y bases de datos relacionales. Inglés C1.
         </p>
         <div class="actions">
           <a href="assets/cv/cv.pdf" download class="btn btn-primary frame">

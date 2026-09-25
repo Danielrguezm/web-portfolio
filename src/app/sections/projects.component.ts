@@ -108,7 +108,7 @@ import { PROJECTS } from '../data/projects';
     /* Los iconos son cuadrados y de trazo oscuro: recortarlos a 16:9 los
        destrozaria, y sobre el fondo oscuro de la tarjeta no se verian. */
     .shot.icono {
-      background: #fff;
+      background: #101f30;
     }
     .shot.icono img {
       object-fit: contain;

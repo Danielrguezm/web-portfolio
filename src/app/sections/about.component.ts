@@ -93,7 +93,7 @@ import { DATOS, HABILIDADES } from '../data/perfil';
     h2 {
       font-size: clamp(30px, 3.4vw, 44px);
       margin: 0 0 22px;
-      max-width: 16ch;
+      max-width: 22ch;
     }
     p {
       margin: 0 0 16px;
